@@ -1,0 +1,25 @@
+.modal {
+}
+
+.modalTitle {
+  padding-top: 50px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.modalContainer {
+  padding: 50px 50px;
+  padding-bottom: 90px;
+}
+
+.inputBox {
+  width: 500px;
+}
+
+.modalBtn {
+  --g-button-background-color:#007aff;
+  --g-button-background-color-hover: #2d92ff;
+  --g-button-font-size: 18px;
+}

@@ -3,6 +3,6 @@ import { Navigate, Outlet } from "react-router-dom";
 import { paths } from "../../paths";
 
 export function PrivateRoute() {
-    const [authState] = useState(true);
+    const [authState] = useState(false);
   return authState ? <Outlet /> : <Navigate to={paths.SIGN_IN} />;
 }
