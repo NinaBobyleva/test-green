@@ -16,15 +16,16 @@
 }
 
 .error {
-  text-align: center;
+  padding-left: 7px;
   color: red;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .modalBtn {
-  --g-button-background-color:#007aff;
+  --g-button-background-color: #007aff;
   --g-button-background-color-hover: #2d92ff;
   --g-button-font-size: 18px;
 }

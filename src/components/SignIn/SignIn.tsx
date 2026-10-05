@@ -6,17 +6,22 @@ import { authUser } from "../../api/authApi";
 import { useAuth } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../paths";
+import { useInputChange } from "../../hooks/useInputChange";
 
 export const SignIn = () => {
   const { setIsAuth } = useAuth();
-  const [idInstance, setIdInstance] = useState("");
-  const [apiTokenInstance, setApiTokenInstance] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const idInstance = useInputChange({ initialValue: "" });
+  const apiTokenInstance = useInputChange({ initialValue: "" });
+
   const sendCredentials = async () => {
     try {
-      const res = await authUser({ idInstance, apiTokenInstance });
+      const res = await authUser({
+        idInstance: idInstance.value,
+        apiTokenInstance: apiTokenInstance.value,
+      });
       setIsAuth(res.isLogout);
       navigate(paths.HOME);
     } catch (error) {
@@ -31,23 +36,41 @@ export const SignIn = () => {
       <h2 className={styles.modalTitle}>Введите учетные данные</h2>
       <div className={styles.modalContainer}>
         <Flex gap={8} direction={"column"} className={styles.inputBox}>
-          <Input
-            onChange={(e) => {
-              setIdInstance(e.target.value);
-            }}
-            type="text"
-            placeholder="idInstance"
-          />
-          <Input
-            onChange={(e) => {
-              setApiTokenInstance(e.target.value);
-            }}
-            type="text"
-            placeholder="apiTokenInstance"
-          />
+          <Flex direction={"column"}>
+            <Input
+              onChange={(e) => {
+                idInstance.setValue(e.target.value);
+              }}
+              onBlur={idInstance.onBlur}
+              error={idInstance.isDirty}
+              type="text"
+              placeholder="idInstance"
+            />
+            {idInstance.error && (
+              <span className={styles.error}>{idInstance.error}</span>
+            )}
+          </Flex>
+          <Flex direction={"column"}>
+            <Input
+              onChange={(e) => {
+                apiTokenInstance.setValue(e.target.value);
+              }}
+              onBlur={apiTokenInstance.onBlur}
+              error={apiTokenInstance.isDirty}
+              type="text"
+              placeholder="apiTokenInstance"
+            />
+            {apiTokenInstance.error && (
+              <span className={styles.error}>{apiTokenInstance.error}</span>
+            )}
+          </Flex>
           <Button
             onClick={sendCredentials}
             className={styles.modalBtn}
+            disabled={
+              !idInstance.value.trim() ||
+              (!apiTokenInstance.value.trim() && true)
+            }
             view="action"
             size="xl"
           >
