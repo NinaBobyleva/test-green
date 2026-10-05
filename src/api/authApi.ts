@@ -5,12 +5,12 @@ export const authUser = async ({ idInstance, apiTokenInstance }: { idInstance: s
     method: "GET"
   });
 
-  if (response.status === 400) {
-    throw new Error("Ошибка валидации");
+  if (response.status === 401) {
+    throw new Error("Проверьте корректность данных");
   }
 
   if (response.status === 404) {
-    throw new Error("Пользователь не найден");
+    throw new Error("Некорректный метод запроса");
   }
 
   if (response.status === 500) {

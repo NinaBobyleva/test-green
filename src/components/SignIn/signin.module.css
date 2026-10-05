@@ -1,6 +1,3 @@
-.modal {
-}
-
 .modalTitle {
   padding-top: 50px;
   text-align: center;
@@ -16,6 +13,14 @@
 
 .inputBox {
   width: 500px;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 .modalBtn {
