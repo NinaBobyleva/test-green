@@ -6,13 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import "@gravity-ui/uikit/styles/styles.css";
 import { ThemeProvider } from "@gravity-ui/uikit";
 import { AuthProvider } from "./context/authContext.tsx";
+import { UserNumberPhoneProvider } from "./context/useUserNumberPhoneContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider theme="light">
         <AuthProvider>
-          <App />
+          <UserNumberPhoneProvider>
+            <App />
+          </UserNumberPhoneProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
