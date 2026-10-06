@@ -3,13 +3,13 @@ import { Input } from "../Input/Input";
 import { Button, Flex, Modal } from "@gravity-ui/uikit";
 import { useState } from "react";
 import { authUser } from "../../api/authApi";
-import { useAuth } from "../../context/authContext";
+import { useAuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../paths";
 import { useInputChange } from "../../hooks/useInputChange";
 
 export const SignIn = () => {
-  const { setIsAuth } = useAuth();
+  const { setIsAuth, setIdInstance, setApiTokenInstance } = useAuthContext();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -17,6 +17,9 @@ export const SignIn = () => {
   const apiTokenInstance = useInputChange({ initialValue: "" });
 
   const sendCredentials = async () => {
+    setIdInstance(idInstance.value);
+    setApiTokenInstance(apiTokenInstance.value);
+
     try {
       const res = await authUser({
         idInstance: idInstance.value,

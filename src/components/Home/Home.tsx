@@ -1,6 +1,5 @@
 import { Flex } from "@gravity-ui/uikit";
 import { PhoneNumberEntry } from "../PhoneNumberEntry/PhoneNumberEntry";
-// import styles from "./main.module.css";
 import { SideBar } from "../SideBar/SideBar";
 import { MessagesField } from "../MessageField/MessageField";
 

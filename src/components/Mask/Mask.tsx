@@ -48,7 +48,7 @@ export const Mask = ({
         onChange={onChange}
         showMask={!!showMask}
         className={error ? styles.inputMaskError : styles.inputMask}
-        mask=" ___ ___ __ __"
+        mask="(___) ___-__-__"
       />
     </div>
   );

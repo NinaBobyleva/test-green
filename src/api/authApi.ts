@@ -25,3 +25,32 @@ export const authUser = async ({ idInstance, apiTokenInstance }: { idInstance: s
 
   return res;
 };
+
+// export const getChatId = async ({ idInstance, apiTokenInstance, phoneNumber }: { idInstance: string, apiTokenInstance: string, phoneNumber: number }) => {
+//   const response = await fetch(URL + `waInstance${idInstance}/logout/${apiTokenInstance}`, {
+//     method: "POST",
+//     body: {
+//       "phoneNumber": phoneNumber,
+//     }
+//   });
+
+//   if (response.status === 401) {
+//     throw new Error("Проверьте корректность данных");
+//   }
+
+//   if (response.status === 404) {
+//     throw new Error("Некорректный метод запроса");
+//   }
+
+//   if (response.status === 500) {
+//     throw new Error("Сервер устал, попробуйте еще раз");
+//   }
+
+//   if (!response.ok) {
+//     throw new Error("Что-то пошло не так");
+//   }
+
+//   const res = await response.json();
+
+//   return res;
+// };
