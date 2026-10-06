@@ -1,5 +1,5 @@
+import { Main } from "../../components/Main/Main";
+
 export const HomePage = () => {
-    return (
-        <h1>Whereas</h1>
-    )
-}
+  return <Main />;
+};
