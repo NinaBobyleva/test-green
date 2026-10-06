@@ -31,10 +31,12 @@ export const SideBar = () => {
         </Flex>
       </div>
       <div className={styles.rightBlock}>
-        <Flex direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+        <header>
+          <Flex direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
             <h1 className={styles.sideBarTitle}>WhatsApp</h1>
             <Icon className={styles.iconColor} size={"50"} data={CirclePlusFill} />
         </Flex>
+        </header>
       </div>
     </Flex>
   );

@@ -12,7 +12,7 @@ export const PhoneNumberEntry = () => {
   const { userNumberPhone, setUserNumberPhone } = useUserNumberPhoneContext();
 
   const openChat = () => {
-    setUserNumberPhone(numberPhone.value);
+    setUserNumberPhone(`+ 7 ${numberPhone.value}`);
     navigate(paths.HOME);
   };
 
